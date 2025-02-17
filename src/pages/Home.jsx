@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import api from "../services/api";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
-
+import Corousel from "../components/Corousel.jsx";
 const Home = () => {
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
@@ -25,8 +25,7 @@ const Home = () => {
       sortedProducts.sort((a, b) => b.rating - a.rating);
     } else if (type === "rating-down") {
       sortedProducts.sort((a, b) => a.rating - b.rating);
-    }
-    else if (type === "price-up") {
+    } else if (type === "price-up") {
       sortedProducts.sort((a, b) => b.price - a.price);
     } else if (type === "price-down") {
       sortedProducts.sort((a, b) => a.price - b.price);
@@ -42,46 +41,63 @@ const Home = () => {
   };
 
   return (
-    <div className="container">
-      <div className="filters">
-        <button onClick={() => handleSort("rating-up")}>
-          Reyting <i className="fa-solid fa-arrow-up"></i>
-        </button>
-        <button onClick={() => handleSort("rating-down")}>
-          Reyting <i className="fa-solid fa-arrow-down"></i>
-        </button>
-        <button onClick={() => handleSort("price-up")}>
-          Narx <i className="fa-solid fa-arrow-up"></i>
-        </button>
-        <button onClick={() => handleSort("price-down")}>
-          Narx <i className="fa-solid fa-arrow-down"></i>
-        </button>
-        <button onClick={() => handleSort("az")}>A-Z</button>
-        <button onClick={() => handleSort("za")}>Z-A</button>
-        <button className="clear" onClick={() => handleSort("clear")}>
-          <i className="fa-solid fa-trash "></i>
-        </button>
+    <>
+      <div className="container">
+        <Corousel />
       </div>
-      <h1>Mahsulotlar</h1>
-      <div className="product-list">
-        {filteredProducts.map((product) => (
-          <Link
-            to={`/product/${product.id}`}
-            key={product.id}
-            className="product-card"
-          >
-            <img src={product.images[0]} alt={product.title} />
-            <h3>{product.title}</h3>
-            <p>💰 {product.price}$</p>
-            <div className="rating">
-              {[...Array(Math.round(product.rating))].map((_, i) => (
-                <FaStar key={i} color="gold" />
-              ))}
-            </div>
-          </Link>
-        ))}
+      <div className="container">
+        ,
+        <div className="card-header">
+          <div className="filters">
+            <button onClick={() => handleSort("rating-up")}>
+              Reyting <i className="fa-solid fa-arrow-up"></i>
+            </button>
+            <button onClick={() => handleSort("rating-down")}>
+              Reyting <i className="fa-solid fa-arrow-down"></i>
+            </button>
+            <button onClick={() => handleSort("price-up")}>
+              Narx <i className="fa-solid fa-arrow-up"></i>
+            </button>
+            <button onClick={() => handleSort("price-down")}>
+              Narx <i className="fa-solid fa-arrow-down"></i>
+            </button>
+            <button onClick={() => handleSort("az")}>A-Z</button>
+            <button onClick={() => handleSort("za")}>Z-A</button>
+            <button className="clear" onClick={() => handleSort("clear")}>
+              <i className="fa-solid fa-trash "></i>
+            </button>
+          </div>
+        </div>
+        <div className="product-list">
+          {filteredProducts.map((product) => (
+            <Link
+              to={`/product/${product.id}`}
+              key={product.id}
+              className="product-card"
+            >
+              <img src={product.images[0]} alt={product.title} />
+              <h3>{product.title}</h3>
+              <div className="rating">
+                {[...Array(Math.round(product.rating))].map((_, i) => (
+                  <FaStar key={i} color="gold" />
+                ))}
+              </div>
+              <p>{(product.price * 1.2 * 13000).toLocaleString()} so'm</p>
+
+              <span className="monthly">
+                <p> {((product.price / 12) * 13000).toFixed(0)} so'm x 12 oy</p>
+              </span>
+              <div className="btns">
+                <button className="buy">Hozir sotib olish</button>
+                <button className="card">
+                  <i className="fa-solid fa-shopping-cart"></i>
+                </button>
+              </div>
+            </Link>
+          ))}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

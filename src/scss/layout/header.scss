@@ -5,6 +5,7 @@ header {
   box-shadow: 0 0 10px #0000001e;
   position: sticky;
   top: 0;
+  z-index: 9999;
 }
 
 .header__top {
@@ -36,16 +37,15 @@ header {
   }
 }
 
-
-.header__bottom{
+.header__bottom {
   width: 100%;
   padding: 16px 0;
-  .container{
+  .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  a{
+  a {
     text-decoration: none;
     color: #000;
     font-size: 16px;

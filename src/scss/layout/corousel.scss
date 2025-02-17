@@ -1,0 +1,27 @@
+.c-card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 300px;
+  img {
+    width: auto;
+    height: 140px;
+  }
+  button {
+    background-color: #006ff0;
+  }
+}
+
+.c-carousel {
+  background-color: #006ff0;
+  padding: 20px 20px;
+  border-radius: 15px;
+}
+
+.title {
+  margin-top: 30px;
+  margin-bottom: 10px;
+}

@@ -1,36 +1,34 @@
 .header__top__btn {
-    background-color: #006bff;
-    color: white;
-    display: flex;
-    gap: 8px;
-    align-items: center;
-    padding: 10px 22px;
-    border: none;
-    height: 40px;
-    cursor: pointer;
-    border-radius: 10px;
+  background-color: #006bff;
+  color: white;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 10px 22px;
+  border: none;
+  height: 40px;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
-
-.filters{
-    display: flex;
-    width: max-content  ;
-    justify-content: space-between;
-
-    gap: 20px;
-    background-color: #eee;
-    padding: 8px;
-    border-radius: 10px;
-    button{
-        padding: 10px 20px;
-        border-radius: 9px;
-        color: white;
-        background-color: #006bff; 
-        cursor: pointer;
-    }
-    .clear{
-        background-color: #555;
-        padding: 10px 12px !important;
-
-    }
+.filters {
+  display: flex;
+  width: max-content;
+  justify-content: space-between;
+  margin: 80px 0 20px;
+  gap: 20px;
+  background-color: #eee;
+  padding: 8px;
+  border-radius: 10px;
+  button {
+    padding: 10px 20px;
+    border-radius: 9px;
+    color: white;
+    background-color: #006bff;
+    cursor: pointer;
+  }
+  .clear {
+    background-color: #555;
+    padding: 10px 12px !important;
+  }
 }
