@@ -1,13 +1,18 @@
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+
 function Header() {
+
   return (
     <>
       <header>
         <div className="header__top">
           <div className="container">
+            <Link to="/">
             <img
               src="https://asaxiy.uz/custom-assets/images/company/asaxiy-logo.svg"
               alt=""
             />
+            </Link>
             <button className="header__top__btn">
               <i class="fa-solid fa-bars"></i>
               Bo'limlar

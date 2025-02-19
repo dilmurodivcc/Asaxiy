@@ -1,0 +1,34 @@
+.period {
+  background-color: #006ff0;
+  padding: 45px 0;
+  width: 100%;
+  margin-top: 40px;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px #fffffff0;
+  }
+  .card{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    min-width: 24%;
+    justify-content: center;
+    
+
+  }
+  .text{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    justify-content: start;
+    gap: 8px;
+
+  }
+
+}
+

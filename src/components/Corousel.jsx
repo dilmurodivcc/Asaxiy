@@ -19,7 +19,7 @@ const Carousel = () => {
 
   return (
     <>
-    <h3 className="title">Super narx</h3>
+      <h3 className="title">Super narx</h3>
       <div className="container c-carousel">
         <Swiper
           modules={[Navigation]}

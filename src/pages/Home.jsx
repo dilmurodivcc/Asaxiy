@@ -18,7 +18,6 @@ const Home = () => {
       .catch((err) => console.error(err));
   }, []);
 
-  // Filtrlash funksiyasi
   const handleSort = (type) => {
     let sortedProducts = [...products];
     if (type === "rating-up") {

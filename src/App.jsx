@@ -4,6 +4,8 @@ import Home from './pages/Home';
 import ProductDetail from './pages/ProductDetail';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import Period from './components/Period';
+import About from './components/About';
 
 function App() {
   return (
@@ -13,6 +15,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
+      <About />
+      <Period></Period>
       <Footer />
     </Router>
   );
