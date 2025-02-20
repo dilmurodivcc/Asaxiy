@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import api from "../services/api";
 import { FaStar } from "react-icons/fa";
 
+
 import xazna from "../assets/icons/XaznaNasiya.svg";
 
 const ProductDetail = () => {

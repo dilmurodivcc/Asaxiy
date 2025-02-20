@@ -24,17 +24,17 @@ function Footer() {
           <div className="column">
             <h4>Biz bilan aloqa</h4>
             <a href="tel:+998 71 200 01 05">
-              <i class="fa-solid fa-phone"></i> +998 71 200 01 05
+              <i className="fa-solid fa-phone"></i> +998 71 200 01 05
             </a>
             <a href="mailto:mailto:info@asaxiy.uz">
-              <i class="fa-solid fa-envelope"></i> info@asaxiy.uz
+              <i className="fa-solid fa-envelope"></i> info@asaxiy.uz
             </a>
             <a href="https://t.me/asaxiybot">
-              <i class="fa-brands fa-telegram"> </i>
+              <i className="fa-brands fa-telegram"> </i>
               Telegram bot
             </a>
             <a href="https://maps.app.goo.gl/fza2BuedafW2pXWcA">
-              <i class="fa-solid fa-location-dot"></i> Chilonzor ko'chasi, 45/2,
+              <i className="fa-solid fa-location-dot"></i> Chilonzor ko'chasi, 45/2,
               Toshkent
             </a>
             <br />
@@ -50,17 +50,17 @@ function Footer() {
           <div className="column">
             <h4>Yetkazib berish va do'konlar</h4>
             <button className="link-btn">
-              <i class="fa-solid fa-store"></i>
+              <i className="fa-solid fa-store"></i>
               Bizning do'konlar
-              <i class="fa-solid fa-angle-right"></i>
+              <i className="fa-solid fa-angle-right"></i>
             </button>
             <button className="link-btn">
-              <i class="fa-solid fa-map-location"></i>
-              Olib ketish punktlari <i class="fa-solid fa-angle-right"></i>
+              <i className="fa-solid fa-map-location"></i>
+              Olib ketish punktlari <i className="fa-solid fa-angle-right"></i>
             </button>
             <button className="link-btn">
-              <i class="fa-solid fa-truck"></i>
-              Yetkazib berish <i class="fa-solid fa-angle-right"></i>
+              <i className="fa-solid fa-truck"></i>
+              Yetkazib berish <i className="fa-solid fa-angle-right"></i>
             </button>
           </div>
           <div className="column">

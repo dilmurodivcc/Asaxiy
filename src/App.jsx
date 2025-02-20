@@ -8,14 +8,18 @@ import Period from './components/Period';
 import About from './components/About';
 
 function App() {
+
   return (
     <Router>
       <Header />
+        
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetail />} />
       </Routes>
       <About />
+      {/* <Modal />  */}
       <Period></Period>
       <Footer />
     </Router>
