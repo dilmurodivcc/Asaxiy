@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import Period from './components/Period';
 import About from './components/About';
+import Wishlist from './pages/Wishlist';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetail />} />
+        <Route path="/wishlist" element={<Wishlist />} />
       </Routes>
       <About />
       {/* <Modal />  */}

@@ -53,13 +53,15 @@ function Header() {
                 />
                 <small>Savatcha</small>
               </span>
+              <Link to="/wishlist">
               <span>
                 <img
                   src="https://asaxiy.uz/custom-assets/images/icons/header/heart.svg"
                   alt=""
-                />
+                  />
                 <small>Sevimlilar</small>
               </span>
+                  </Link>
               <span>
                 <img
                   src="https://asaxiy.uz/custom-assets/images/icons/header/language-ru.svg"
