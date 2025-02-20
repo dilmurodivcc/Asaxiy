@@ -4,7 +4,7 @@ import api from "../services/api";
 import { FaStar } from "react-icons/fa";
 
 
-import xazna from "../assets/icons/XaznaNasiya.svg";
+import xazna from "../assets/icons/xaznaNasiya.svg";
 
 const ProductDetail = () => {
   const { id } = useParams();
