@@ -81,10 +81,18 @@ const Home = () => {
                   <FaStar key={i} color="gold" />
                 ))}
               </div>
-              <p>{(product.price * 1.2 * 13000).toLocaleString()} so'm</p>
-
+              <p className="discount">
+                {((product.price * 1.1 )* 13000).toLocaleString()} so'm
+              </p>
+              <p className="price">{(product.price * 13000).toLocaleString()} so'm</p>
+                <button className="like">
+                  <i className="fa-regular fa-heart"></i>
+                </button>
+                <span className="super">
+                  SUPER NARX
+                </span>
               <span className="monthly">
-                <p> {((product.price / 12) * 13000).toFixed(0)} so'm x 12 oy</p>
+                 {((product.price / 12) * 13000).toFixed(0)} so'm x 12 oy
               </span>
               <div className="btns">
                 <button className="buy">Hozir sotib olish</button>

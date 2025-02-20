@@ -38,7 +38,7 @@ const ProductDetail = () => {
             <FaStar key={i} color="gold" />
           ))}
         </div>
-        <h5>{product.price * 13000} so'm</h5>
+        <h5>{(product.price * 13000).toFixed(0)} so'm</h5>
         <div className="btns">
           <button className="add-card">
             Savatchaga Qo'shish
@@ -55,11 +55,11 @@ const ProductDetail = () => {
           XaznaNasiya hamkorining muddatli to'lovi
           <div className="line">
             <img src={xazna} alt="" />
-            <b>{((product.price * 13000) / 18).toFixed()} so'm</b>
+            <b>{((product.price * 13000) / 18).toFixed(0)} so'm</b>
           </div>
           <div className="line">
             <small>Umumiy qiymat</small>
-            <p>{product.price * 13000} so'm</p>
+            <p>{(product.price * 13000).toFixed(0)} so'm</p>
           </div>
           <button>Bolib to'lashga olish </button>
         </div>
