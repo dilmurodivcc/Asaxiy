@@ -1,13 +1,19 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import api from "../services/api";
 import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import Corousel from "../components/Corousel.jsx";
+import DetailModal from "../components/DetailModal.jsx";
+import { useStateValue } from "../context/Provider.jsx"; 
 const Home = () => {
+  const { favorites, toggleFavorite } = useStateValue();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [sortType, setSortType] = useState("");
-
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     api
       .get("/")
@@ -20,21 +26,19 @@ const Home = () => {
 
   const handleSort = (type) => {
     let sortedProducts = [...products];
-    if (type === "rating-up") {
+    if (type === "rating-up")
       sortedProducts.sort((a, b) => b.rating - a.rating);
-    } else if (type === "rating-down") {
+    else if (type === "rating-down")
       sortedProducts.sort((a, b) => a.rating - b.rating);
-    } else if (type === "price-up") {
+    else if (type === "price-up")
       sortedProducts.sort((a, b) => b.price - a.price);
-    } else if (type === "price-down") {
+    else if (type === "price-down")
       sortedProducts.sort((a, b) => a.price - b.price);
-    } else if (type === "az") {
+    else if (type === "az")
       sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
-    } else if (type === "za") {
+    else if (type === "za")
       sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
-    } else if (type === "clear") {
-      sortedProducts = products;
-    }
+    else if (type === "clear") sortedProducts = products;
     setFilteredProducts(sortedProducts);
     setSortType(type);
   };
@@ -45,7 +49,6 @@ const Home = () => {
         <Corousel />
       </div>
       <div className="container">
-        ,
         <div className="card-header">
           <div className="filters">
             <button onClick={() => handleSort("rating-up")}>
@@ -69,10 +72,10 @@ const Home = () => {
         </div>
         <div className="product-list">
           {filteredProducts.map((product) => (
-            <Link
-              to={`/product/${product.id}`}
+            <div
               key={product.id}
               className="product-card"
+              onClick={() => setSelectedProduct(product)}
             >
               <img src={product.images[0]} alt={product.title} />
               <h3>{product.title}</h3>
@@ -82,17 +85,32 @@ const Home = () => {
                 ))}
               </div>
               <p className="discount">
-                {((product.price * 1.1 )* 13000).toLocaleString()} so'm
+                {(product.price * 1.1 * 13000).toLocaleString()} so'm
               </p>
-              <p className="price">{(product.price * 13000).toLocaleString()} so'm</p>
-                <button className="like">
-                  <i className="fa-regular fa-heart"></i>
-                </button>
-                <span className="super">
-                  SUPER NARX
-                </span>
+              <p className="price">
+                {(product.price * 13000).toLocaleString()} so'm
+              </p>
+
+              {/* Like tugmasi */}
+              <button
+                className="like"
+                onClick={(e) => {
+                  e.stopPropagation(); // Card bosilishining oldini olish
+                  toggleFavorite(product);
+                }}
+              >
+                <i
+                  className={
+                    favorites.some((fav) => fav.id === product.id)
+                      ? "fa-solid fa-heart"
+                      : "fa-regular fa-heart"
+                  }
+                ></i>
+              </button>
+
+              <span className="super">SUPER NARX</span>
               <span className="monthly">
-                 {((product.price / 12) * 13000).toFixed(0)} so'm x 12 oy
+                {((product.price / 12) * 13000).toFixed(0)} so'm x 12 oy
               </span>
               <div className="btns">
                 <button className="buy">Hozir sotib olish</button>
@@ -100,12 +118,20 @@ const Home = () => {
                   <i className="fa-solid fa-shopping-cart"></i>
                 </button>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </div>
+
+      {/* DetailModalni chiqarish */}
+      {selectedProduct && (
+        <DetailModal
+          product={selectedProduct}
+          onClose={() => setSelectedProduct(null)}
+        />
+      )}
     </>
   );
 };
 
-export default Home;
+export default memo(Home);

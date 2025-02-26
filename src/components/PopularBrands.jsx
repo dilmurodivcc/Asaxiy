@@ -1,3 +1,5 @@
+import { memo } from "react"
+
 function PopularB() {
     return (
       <>
@@ -6,5 +8,5 @@ function PopularB() {
     )
   }
   
-  export default PopularB
+  export default memo(PopularB)
   

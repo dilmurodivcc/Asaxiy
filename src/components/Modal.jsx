@@ -1,5 +1,5 @@
 import InputMask from "react-input-mask-next";
-import { useState } from "react";
+import { memo, useState } from "react";
 
 function Modal() {
   const [open, setOpen] = useState(false);
@@ -29,4 +29,4 @@ function Modal() {
   );
 }
 
-export default Modal;
+export default memo(Modal);

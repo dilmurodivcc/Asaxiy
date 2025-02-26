@@ -1,3 +1,5 @@
+import { memo } from "react";
+
 function Period() {
   return (
     <>
@@ -51,4 +53,4 @@ function Period() {
   );
 }
 
-export default Period;
+export default memo(Period);

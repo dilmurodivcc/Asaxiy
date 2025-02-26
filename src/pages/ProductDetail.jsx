@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { memo, useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import api from "../services/api";
 import { FaStar } from "react-icons/fa";
@@ -9,7 +9,9 @@ import xazna from "../assets/icons/xaznaNasiya.svg";
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   useEffect(() => {
     api
       .get(`/${id}`)
@@ -68,4 +70,4 @@ const ProductDetail = () => {
   );
 };
 
-export default ProductDetail;
+export default memo(ProductDetail);

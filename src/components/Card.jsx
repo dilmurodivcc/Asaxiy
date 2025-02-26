@@ -1,3 +1,5 @@
+import { memo } from "react"
+
 function Card() {
     return (
       <>
@@ -6,5 +8,5 @@ function Card() {
     )
   }
   
-  export default Card
+  export default memo(Card)
   

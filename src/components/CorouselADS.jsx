@@ -1,3 +1,5 @@
+import { memo } from "react"
+
 function CorouselADS() {
     return (
       <>
@@ -6,5 +8,5 @@ function CorouselADS() {
     )
   }
   
-  export default CorouselADS
+  export default memo(CorouselADS)
   

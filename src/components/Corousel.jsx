@@ -4,7 +4,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import api from "../services/api";
 
 const Carousel = () => {
@@ -43,4 +43,4 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default memo(Carousel);

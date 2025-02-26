@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { memo, useState } from "react";
 import { Link } from "react-router-dom";
 import google from "../assets/icons/g.webp";
 import facebook from "../assets/icons/f.webp";
+import { useStateValue } from "../context/Provider.jsx";
 function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const { favorites, toggleFavorite } = useStateValue();
 
   return (
     <>
@@ -54,14 +56,15 @@ function Header() {
                 <small>Savatcha</small>
               </span>
               <Link to="/wishlist">
-              <span>
-                <img
-                  src="https://asaxiy.uz/custom-assets/images/icons/header/heart.svg"
-                  alt=""
+                <span className="favorite">
+                  <img
+                    src="https://asaxiy.uz/custom-assets/images/icons/header/heart.svg"
+                    alt=""
                   />
-                <small>Sevimlilar</small>
-              </span>
-                  </Link>
+                  <small>Sevimlilar</small>
+                  <div className="badge">{favorites.length}</div>
+                </span>
+              </Link>
               <span>
                 <img
                   src="https://asaxiy.uz/custom-assets/images/icons/header/language-ru.svg"
@@ -187,4 +190,4 @@ function LoginModal({ onClose }) {
   );
 }
 
-export default Header;
+export default memo(Header);
