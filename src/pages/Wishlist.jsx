@@ -6,7 +6,7 @@ import { FaStar } from "react-icons/fa";
 const Wishlist = () => {
   const { favorites, toggleFavorite } = useStateValue(); // Wishlist ma'lumotlarini olish
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo(100, 0);
   }, []);
   return (
     <div className="container wishlist">
