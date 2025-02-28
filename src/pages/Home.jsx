@@ -4,16 +4,16 @@ import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 import Corousel from "../components/Corousel.jsx";
 import DetailModal from "../components/DetailModal.jsx";
-import { useStateValue } from "../context/Provider.jsx"; 
+import { useStateValue } from "../context/Provider.jsx";
 const Home = () => {
-  const { favorites, toggleFavorite } = useStateValue();
+  const { favorites, toggleFavorite, cart, toggleCart } = useStateValue();
   const [products, setProducts] = useState([]);
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [sortType, setSortType] = useState("");
   const [selectedProduct, setSelectedProduct] = useState(null);
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []); 
+  }, []);
   useEffect(() => {
     api
       .get("/")
@@ -95,7 +95,7 @@ const Home = () => {
               <button
                 className="like"
                 onClick={(e) => {
-                  e.stopPropagation(); // Card bosilishining oldini olish
+                  e.stopPropagation();
                   toggleFavorite(product);
                 }}
               >
@@ -114,8 +114,28 @@ const Home = () => {
               </span>
               <div className="btns">
                 <button className="buy">Hozir sotib olish</button>
-                <button className="card">
-                  <i className="fa-solid fa-shopping-cart"></i>
+                <button
+                  className="card"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleCart(product);
+                  }}
+                >
+                  <i className="fa-solid fa-shopping-cart" style={
+                    {
+                      cursor: "pointer",
+                      color: cart.some((card) => card.id === product.id)
+                        ? "orange"
+                        : "white",
+                    }
+                  }></i>
+                  {/* <i
+                    className={
+                      cart.some((card) => card.id === product.id)
+                        ? "fa-solid shopping-cart"
+                        : "fa-regular shopping-cart"
+                    }
+                  ></i> */}
                 </button>
               </div>
             </div>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { FaStar } from "react-icons/fa";
 
 const Wishlist = () => {
-  const { favorites, toggleFavorite } = useStateValue(); // Wishlist ma'lumotlarini olish
+  const { favorites, toggleFavorite } = useStateValue(); 
   useEffect(() => {
     window.scrollTo(100, 0);
   }, []);
@@ -16,7 +16,7 @@ const Wishlist = () => {
         {favorites.length > 0 ? (
           favorites.map((product) => (
             <Link
-              to={`/detail/${product.id}`} // Mahsulot detallari sahifasiga yo‘naltirish
+              to={`/detail/${product.id}`}
               key={product.id}
               className="product-card"
             >
@@ -34,11 +34,10 @@ const Wishlist = () => {
                 {(product.price * 13000).toLocaleString()} so'm
               </p>
 
-              {/* Like tugmasi */}
               <button
                 className="like"
                 onClick={(e) => {
-                  e.preventDefault(); // `Link` orqali yo‘naltirishni bloklash
+                  e.preventDefault();
                   toggleFavorite(product);
                 }}
               >

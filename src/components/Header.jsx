@@ -5,7 +5,7 @@ import facebook from "../assets/icons/f.webp";
 import { useStateValue } from "../context/Provider.jsx";
 function Header() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { favorites, toggleFavorite } = useStateValue();
+  const { favorites, cart } = useStateValue();
 
   return (
     <>
@@ -48,15 +48,18 @@ function Header() {
                 />
                 <small>Trek</small>
               </span>
-              <span>
+         <Link to="/korzinka">
+         <span className="navlinks">
                 <img
                   src="https://asaxiy.uz/custom-assets/images/icons/header/cart.svg"
                   alt=""
                 />
                 <small>Savatcha</small>
+                <div className="badge">{cart.length}</div>
               </span>
+         </Link>
               <Link to="/wishlist">
-                <span className="favorite">
+                <span className="navlinks">
                   <img
                     src="https://asaxiy.uz/custom-assets/images/icons/header/heart.svg"
                     alt=""

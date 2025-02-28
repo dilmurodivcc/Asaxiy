@@ -7,11 +7,10 @@ import Footer from "./components/Footer";
 import Period from "./components/Period";
 import About from "./components/About";
 import Wishlist from "./pages/Wishlist";
-import { Provider } from "./context/Provider";
+import Karzinka from "./pages/Karzinka";
+import { Provider } from "./context/Provider";  
 
 function App() {
-  // window loading before render
-
   return (
     <Provider>
       <Router>
@@ -20,9 +19,9 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetail />} />
           <Route path="/wishlist" element={<Wishlist />} />
+          <Route path="/korzinka" element={<Karzinka />} />
         </Routes>
         <About />
-        {/* <Modal />  */}
         <Period></Period>
         <Footer />
       </Router>
