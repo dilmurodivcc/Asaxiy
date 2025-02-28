@@ -135,7 +135,7 @@ function Karzinka() {
           </div>
         </div>
         <div className="bottom">
-          <Link to="/order">
+          <Link to="/orders">
             <button className="order">BUYURTMA</button>
           </Link>
         </div>
