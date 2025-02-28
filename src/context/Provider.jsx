@@ -11,12 +11,10 @@ function Provider({ children }) {
     return JSON.parse(localStorage.getItem("cart")) || [];
   });
 
-  // `favorites` o‘zgarsa, localStorage-ga saqlash
   useEffect(() => {
     localStorage.setItem("favorites", JSON.stringify(favorites));
   }, [favorites]);
 
-  // `cart` o‘zgarsa, localStorage-ga saqlash
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
@@ -32,13 +30,18 @@ function Provider({ children }) {
   const toggleCart = (product) => {
     setCart((prev) =>
       prev.some((item) => item.id === product.id)
-        ? prev.filter((item) => item.id !== product.id) // Agar bor bo‘lsa, o‘chirish
-        : [...prev, product] // Agar yo‘q bo‘lsa, qo‘shish
+        ? prev.filter((item) => item.id !== product.id) 
+        : [...prev, product] 
     );
   };
+  const removeFromCart = (id) => {
+    let updatedCart = cart.filter((item) => item.id !== id);
+    setCart(updatedCart);
+    localStorage.setItem("cart", JSON.stringify(updatedCart));
+};
 
   return (
-    <Context.Provider value={{ favorites, toggleFavorite, cart, toggleCart }}>
+    <Context.Provider value={{ favorites, toggleFavorite, cart, toggleCart, cart, removeFromCart }}>
       {children}
     </Context.Provider>
   );
