@@ -34,14 +34,10 @@ function Provider({ children }) {
         : [...prev, product] 
     );
   };
-  const removeFromCart = (id) => {
-    let updatedCart = cart.filter((item) => item.id !== id);
-    setCart(updatedCart);
-    localStorage.setItem("cart", JSON.stringify(updatedCart));
-};
+
 
   return (
-    <Context.Provider value={{ favorites, toggleFavorite, cart, toggleCart, cart, removeFromCart }}>
+    <Context.Provider value={{ favorites, toggleFavorite, cart, toggleCart, setCart }}>
       {children}
     </Context.Provider>
   );
